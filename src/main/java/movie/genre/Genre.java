@@ -1,4 +1,4 @@
-package movie;
+package movie.genre;
 
 public enum Genre
 {
