@@ -1,0 +1,20 @@
+The Godfather|The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.|24-03-1972|Crime|12.99
+The Shawshank Redemption|Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.|23-09-1994|Drama|11.99
+The Dark Knight|When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.|18-07-2008|Action|14.99
+Forrest Gump|The presidencies of Kennedy and Johnson, the events of Vietnam, Watergate, and other historical events unfold through the perspective of an Alabama man with an IQ of 75.|06-07-1994|Drama|9.99
+Fight Club|An insomniac office worker and a devil-may-care soapmaker form an underground fight club that evolves into something much, much more.|15-10-1999|Drama|13.99
+Pulp Fiction|The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.|14-10-1994|Crime|12.99
+The Matrix|A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.|31-03-1999|Action|10.99
+Goodfellas|The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.|19-09-1990|Crime|11.99
+Schindler's List|In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.|30-11-1993|Biography|10.99
+The Silence of the Lambs|A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.|14-02-1991|Crime|12.99
+The Lord of the Rings: The Fellowship of the Ring|A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.|19-12-2001|Action|14.99
+The Departed|An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.|06-10-2006|Crime|13.99
+Saving Private Ryan|Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.|24-07-1998|War|10.99
+Interstellar|A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.|07-11-2014|Adventure|15.99
+The Prestige|After a tragic accident, two stage magicians engage in a battle to create the ultimate illusion while sacrificing everything they have to outwit each other.|20-10-2006|Drama|11.99
+The Green Mile|The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, yet who has a mysterious gift.|10-12-1999|Crime|12.99
+The Usual Suspects|A sole survivor tells of the twisty events leading up to a horrific gun battle on a boat, which began when five criminals met at a seemingly random police lineup.|15-09-1995|Crime|10.99
+The Godfather: Part II|The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.|20-12-1974|Crime|12.99
+The Social Network|As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by the twins who claimed he stole their idea, and by the co-founder who was later squeezed out of the business.|01-10-2010|Biography|11.99
+The Shining|A family heads to an isolated hotel for the winter where a sinister presence influences the father into violence, while his psychic son sees horrific forebodings from both past and future.|23-05-1980|Horror|9.99
