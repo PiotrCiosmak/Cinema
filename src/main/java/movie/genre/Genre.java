@@ -5,6 +5,7 @@ public enum Genre
     ACTION,
     ADVENTURE,
     ANIMATION,
+    BIOGRAPHY,
     COMEDY,
     CRIME,
     DOCUMENTARY,
