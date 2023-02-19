@@ -50,4 +50,10 @@ public class Movie
     {
         return price;
     }
+
+    @Override
+    public String toString()
+    {
+        return title + '|' + description + '|' + releaseDate.toString() + '|' + genre.toString() + '|' + price.toString();
+    }
 }
