@@ -1,6 +1,16 @@
-Dodać klasę repertuar która bedzie przymała infor o tym jaki film jest grany w jakim czasie (data i czas), terminarz ten bedzie na 7 dni do przodu generowany losoway
+KLASA FOTEL/MIEJSCE
+informacje o rodzaju miejsca(enum)
+numer miejsc
+numer rzedu
 
-Dodać klase sala kinowa i każda sala bedzie miała swój repertuar
+
+KLASA SALA
+ma swój repertuar
+zawiera obiekty miejsce (tablica 2d czy jakoś tak)
+wielkośc sali (enum)
+liczba zajetych miejsc
+liczba wolnych miejsc
+zwraca info ile % miejsc zajetych
 
 KLASA CINEMA:
 wszystkie sale wenątrz
@@ -13,6 +23,7 @@ informacja o tym czy 2d czy 3d
 informacje o tym czy z napisami
 informacja o tym czy z dubiinigiem
 
-Dodać klase klient który bedzie mógł zobaczyć repertuar i  wybrać film na który chce iść
-
-Dodac wysztukatoarke filmów i tak pokazac że umiem strumienie
+KLASA KLIENT:
+klient bedzie mogł sprawdc rperatuar na konkertny dzień (a pozniej ew. filtrować po gatunkach lub godzinach)
+wyszukać film po nazwie
+gdy wybierze film sprawdzić czy są wolne miejsca (i które mapa X/O) i ew. zarezerwowac miejsce
