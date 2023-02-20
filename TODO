@@ -3,7 +3,6 @@ Dodać klasę repertuar która bedzie przymała infor o tym jaki film jest grany
 Dodać klase klient który bedzie mógł zobaczyć repertuar i  wybrać film na który chce iść
 
 Movie:
-Dodac możliwośc updatu ceny
 Dodać testy dla klasy movie
 
 Dodac wysztukatoarke filmów i tak pokazac że umiem strumienie

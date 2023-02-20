@@ -3,7 +3,6 @@ package movie;
 import movie.genre.Genre;
 
 import java.math.BigDecimal;
-import java.time.Duration;
 import java.time.LocalDate;
 
 public class Movie
@@ -28,6 +27,13 @@ public class Movie
         this.genre = genre;
         this.price = price;
         this.duration = duration;
+    }
+
+    public BigDecimal updatePrice(BigDecimal price)
+    {
+        BigDecimal oldPrice = this.price;
+        this.price = price;
+        return oldPrice;
     }
 
     public String getTitle()
