@@ -94,7 +94,7 @@ public class MovieCollection
 
     private static Long getRandomMovieId()
     {
-        return ThreadLocalRandom.current().nextLong(getNumberOfMovies() + 1);
+        return ThreadLocalRandom.current().nextLong(getNumberOfMovies());
     }
 
     public static int getNumberOfMovies()
