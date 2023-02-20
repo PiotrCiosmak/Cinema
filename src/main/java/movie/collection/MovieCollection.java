@@ -70,6 +70,16 @@ public class MovieCollection
         System.out.println("Movies has been saved");
     }
 
+    public static Optional<Long> getId(Movie movie)
+    {
+        return idToMovie
+                .entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().equals(movie))
+                .map(Map.Entry::getKey)
+                .findFirst();
+    }
+
     public static Optional<Movie> get(Long id)
     {
         return Optional.ofNullable(idToMovie.get(id));

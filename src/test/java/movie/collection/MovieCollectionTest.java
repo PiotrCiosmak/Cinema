@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -115,5 +116,15 @@ class MovieCollectionTest
     {
         Movie movie = MovieCollection.getRandomMovie();
         assertNotNull(movie);
+    }
+
+    @Test
+    @DisplayName("Attempting to get movie id should return movie id when movie is in the collection")
+    public void attemptingToGetMovieIdShouldReturnMovieIdWhenMovieIsInTheCollection()
+    {
+        Optional<Movie> movie = MovieCollection.get(1L);
+        assertTrue(movie.isPresent());
+        Optional<Long> id = MovieCollection.getId(movie.get());
+        assertEquals(id.get(), 1L);
     }
 }
