@@ -31,7 +31,7 @@ public class MovieCollection
         lines.forEach(line ->
         {
             String[] parts = line.split("\\|");
-            Movie movie = new Movie(parts[0], parts[1], LocalDate.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM-dd")), Genre.valueOf(parts[3].toUpperCase()), new BigDecimal(parts[4]));
+            Movie movie = new Movie(parts[0], parts[1], LocalDate.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM-dd")), Genre.valueOf(parts[3].toUpperCase()), new BigDecimal(parts[4]),  Integer.parseInt(parts[5]));
             add(movie);
         });
         System.out.println("Movies has been loaded");

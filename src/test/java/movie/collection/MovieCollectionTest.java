@@ -23,7 +23,7 @@ class MovieCollectionTest
     @Test
     public void newMovieShouldBeAdded()
     {
-        MovieCollection.add(new Movie("Test", "test", LocalDate.now(), Genre.ACTION, BigDecimal.ZERO));
+        MovieCollection.add(new Movie("Test", "test", LocalDate.now(), Genre.ACTION, BigDecimal.ZERO, 0));
     }
 
     @Test
@@ -31,7 +31,7 @@ class MovieCollectionTest
     public void afterAddingMovieTheirNumberShouldIncrement()
     {
         int numberOfMovieBeforeAddingNew = MovieCollection.getNumberOfMovies();
-        MovieCollection.add(new Movie("Test", "test", LocalDate.now(), Genre.ACTION, BigDecimal.ZERO));
+        MovieCollection.add(new Movie("Test", "test", LocalDate.now(), Genre.ACTION, BigDecimal.ZERO, 0));
         int numberOfMovieAfterAddingNew = MovieCollection.getNumberOfMovies();
         assertEquals(numberOfMovieAfterAddingNew, numberOfMovieBeforeAddingNew + 1);
     }
