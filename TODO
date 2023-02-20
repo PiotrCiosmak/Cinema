@@ -1,7 +1,9 @@
-Dodać klasę repertuar która bedzie przymała infor o tym jaki film jest grany w jakim czasie (data i czas)
+Dodać klasę repertuar która bedzie przymała infor o tym jaki film jest grany w jakim czasie (data i czas), terminarz ten bedzie na 7 dni do przodu generowany losoway
 
 Dodać klase klient który bedzie mógł zobaczyć repertuar i  wybrać film na który chce iść
 
 Movie:
 Dodac możliwośc updatu ceny
 Dodać testy dla klasy movie
+
+Dodac wysztukatoarke filmów i tak pokazac że umiem strumienie
