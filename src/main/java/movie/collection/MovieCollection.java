@@ -13,6 +13,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
 public class MovieCollection
@@ -31,7 +32,7 @@ public class MovieCollection
         lines.forEach(line ->
         {
             String[] parts = line.split("\\|");
-            Movie movie = new Movie(parts[0], parts[1], LocalDate.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM-dd")), Genre.valueOf(parts[3].toUpperCase()), new BigDecimal(parts[4]),  Integer.parseInt(parts[5]));
+            Movie movie = new Movie(parts[0], parts[1], LocalDate.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM-dd")), Genre.valueOf(parts[3].toUpperCase()), new BigDecimal(parts[4]), Integer.parseInt(parts[5]));
             add(movie);
         });
         System.out.println("Movies has been loaded");
@@ -84,6 +85,16 @@ public class MovieCollection
         idToMovie.put(key, movie);
         key++;
         System.out.println("Added new movie \"" + movie.getTitle() + "\".");
+    }
+
+    public static Movie getRandomMovie()
+    {
+        return idToMovie.get(getRandomMovieId());
+    }
+
+    private static Long getRandomMovieId()
+    {
+        return ThreadLocalRandom.current().nextLong(getNumberOfMovies() + 1);
     }
 
     public static int getNumberOfMovies()

@@ -108,4 +108,12 @@ class MovieCollectionTest
         MovieCollection.load();//We need to load movies from file because we don't want save any changes in file done in previous tests
         MovieCollection.save();
     }
+
+    @Test
+    @DisplayName("Should generate random movie")
+    public void shouldGenerateRandomMovie()
+    {
+        Movie movie = MovieCollection.getRandomMovie();
+        assertNotNull(movie);
+    }
 }
