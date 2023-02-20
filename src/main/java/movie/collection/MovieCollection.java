@@ -22,7 +22,7 @@ public class MovieCollection
 
     private static Map<Long, Movie> idToMovie = new HashMap<>();
 
-    private static Path moviesFilePath = Path.of("movies.txt");
+    private static Path moviesFilePath = Path.of("files/movies.txt");
 
     public static void load()
     {
