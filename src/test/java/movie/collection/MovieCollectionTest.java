@@ -2,9 +2,7 @@ package movie.collection;
 
 import movie.Movie;
 import movie.genre.Genre;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MovieCollectionTest
 {
-    @BeforeAll
-    public static void initialize()
+    @BeforeEach
+    public void initialize()
     {
         MovieCollection.load();
     }
@@ -49,7 +47,7 @@ class MovieCollectionTest
     @DisplayName("Attempting to delete a movie by title that exist should return true")
     public void attemptingToDeleteMovieByTitleThatExistShouldReturnTrue()
     {
-        Movie movie = MovieCollection.get(0L).get();
+        Movie movie = MovieCollection.get(1L).get();
         boolean movieHasBeenDeleted = MovieCollection.remove(movie.getTitle());
         assertTrue(movieHasBeenDeleted);
     }
@@ -66,7 +64,7 @@ class MovieCollectionTest
     @DisplayName("Attempting to delete a movie by id that exist should return true")
     public void attemptingToDeleteMovieByIdThatExistShouldReturnTrue()
     {
-        boolean movieHasBeenDeleted = MovieCollection.remove(1L);
+        boolean movieHasBeenDeleted = MovieCollection.remove(0L);
         assertTrue(movieHasBeenDeleted);
     }
 
@@ -106,7 +104,6 @@ class MovieCollectionTest
     @DisplayName("Save method should work without throwing errors")
     public void saveMethodShouldWorkWithoutThrowingErrors()
     {
-        MovieCollection.load();//We need to load movies from file because we don't want save any changes in file done in previous tests
         MovieCollection.save();
     }
 
@@ -122,9 +119,9 @@ class MovieCollectionTest
     @DisplayName("Attempting to get movie id should return movie id when movie is in the collection")
     public void attemptingToGetMovieIdShouldReturnMovieIdWhenMovieIsInTheCollection()
     {
-        Optional<Movie> movie = MovieCollection.get(1L);
+        Optional<Movie> movie = MovieCollection.get(0L);
         assertTrue(movie.isPresent());
         Optional<Long> id = MovieCollection.getId(movie.get());
-        assertEquals(id.get(), 1L);
+        assertEquals(id.get(), 0L);
     }
 }
