@@ -17,7 +17,7 @@ class MovieTest
     @BeforeAll
     public static void initialize()
     {
-        movie = new Movie("Test title", "Test description", LocalDate.now(), Genre.ACTION, BigDecimal.valueOf(9.99), 125);
+        movie = new Movie("Test title", "Test description", LocalDate.now(), Genre.ACTION, BigDecimal.valueOf(9.99), 125L);
     }
 
     @Test

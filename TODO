@@ -18,7 +18,6 @@ godzina zamkniecie
 Lokalizacja kina (osobna klasa)
 
 KLASA MOVIE:
-zmienic duration na Long
 informacja o tym czy 2d czy 3d
 informacje o tym czy z napisami
 informacja o tym czy z dubiinigiem
