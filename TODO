@@ -3,10 +3,6 @@ informacje o rodzaju miejsca(enum)
 numer miejsc
 numer rzedu
 
-KLASA REPERTUAR KOLEKCJA
-zawiera repertuar na dziś i 6 kolejnych dni
-sprawdza i ew, generuje koljne
-
 KLASA SALA
 ma swój repertuar
 zawiera obiekty miejsce (tablica 2d czy jakoś tak)
