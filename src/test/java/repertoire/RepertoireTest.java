@@ -24,13 +24,13 @@ class RepertoireTest
         date = LocalDate.now();
         repertoireFilePath = "files/repertoire/" + date + ".txt";
         repertoire = new Repertoire(date, LocalTime.of(6, 0), LocalTime.of(22, 0));
+        MovieCollection.load();
     }
 
     @Test
     @DisplayName("Should generate and save repertoire when repertoire isn't created for this date")
     public void shouldGenerateAndSaveRepertoireWhenRepertoireIsNotCreatedForThisDate()
     {
-        MovieCollection.load();
         Map<LocalDateTime, Movie> dateAndTimeToMovie = repertoire.generate();
         assertFalse(dateAndTimeToMovie.isEmpty());
     }
@@ -39,7 +39,6 @@ class RepertoireTest
     @DisplayName("Should load repertoire when repertoire is created for this date")
     public void shouldLoadRepertoireWhenRepertoireIsCreatedForThisDate()
     {
-        MovieCollection.load();
         Map<LocalDateTime, Movie> dateAndTimeToMovie = repertoire.generate();
         assertFalse(dateAndTimeToMovie.isEmpty());
 
