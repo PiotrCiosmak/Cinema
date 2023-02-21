@@ -24,7 +24,18 @@ public class RepertoireCollection
     public RepertoireCollection(LocalTime openingHours, LocalTime closingHours)
     {
         this.FIRST_DAY = LocalDate.now();
-        this.LAST_DAY = LocalDate.now().plusDays(6);
+        this.LAST_DAY = FIRST_DAY.plusDays(7);
+        this.currentDay = FIRST_DAY;
+
+        this.openingHours = openingHours;
+        this.closingHours = closingHours;
+        this.repertoires = new ArrayList<>();
+    }
+
+    public RepertoireCollection(LocalTime openingHours, LocalTime closingHours, LocalDate firstDay)
+    {
+        this.FIRST_DAY = firstDay;
+        this.LAST_DAY = FIRST_DAY.plusDays(7);
         this.currentDay = FIRST_DAY;
 
         this.openingHours = openingHours;
