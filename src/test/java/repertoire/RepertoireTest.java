@@ -21,7 +21,7 @@ class RepertoireTest
     @BeforeEach
     public void initialize()
     {
-        date = LocalDate.now();
+        date = LocalDate.of(2000,01,01);
         repertoireFilePath = "files/repertoire/" + date + ".txt";
         repertoire = new Repertoire(date, LocalTime.of(6, 0), LocalTime.of(22, 0));
         MovieCollection.load();
