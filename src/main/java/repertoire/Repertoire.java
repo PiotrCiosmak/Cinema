@@ -17,96 +17,83 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Repertoire
 {
-    private final LocalDateTime FIRST_DAY;
-    private final LocalDateTime LAST_DAY;
-    private final Long DURATION;
 
-    private Long durationOfAllMovieWithBreaksThroughoutTheDay;
+    private Long numberOfAvailableMinutes;
 
-    private LocalDateTime possibleDateOfTheNextMovie;
+    private LocalDateTime startTimeOfTheNextMovie;
 
+    private LocalDate repertoireValidityDate;
 
     private Path repertoireDayPath;
+
     private Map<LocalDateTime, Movie> dateAndTimeToMovie;
 
-    public Repertoire(LocalTime openingHours, LocalTime closingHours)
+    public Repertoire(LocalDate date, LocalTime openingHours, LocalTime closingHours)
     {
-        FIRST_DAY = LocalDate.now().atTime(openingHours);
-        LAST_DAY = FIRST_DAY.plusDays(6).withHour(closingHours.getHour()).withMinute(closingHours.getMinute());
-        DURATION = Duration.between(openingHours, closingHours).toMinutes();
-        durationOfAllMovieWithBreaksThroughoutTheDay = 0L;
-
-        possibleDateOfTheNextMovie = FIRST_DAY;
-
+        numberOfAvailableMinutes = Duration.between(openingHours, closingHours).toMinutes();
+        startTimeOfTheNextMovie = date.atTime(openingHours);
+        repertoireValidityDate = date;
+        repertoireDayPath = Path.of("files/repertoire/" + date + ".txt");
         this.dateAndTimeToMovie = new HashMap<>();
-        repertoireDayPath = Path.of("files/repertoire/" + FIRST_DAY.toLocalDate() + ".txt");
     }
 
-    public void generateForTheWholeWeek()
+    public void generate()
     {
-        while (repertoireShouldBeCreated())
+        if (repertoireAlreadyExists())
         {
-            setRepertoireDayPath();
-            if (!repertoireForThisDateIsCreated())
-            {
-                generateForOneDay();
-                save();
-            }
-            else
-            {
-                load();
-            }
-            setTheDateOfTheNextPossibleMovieToTheNextDayAtTheOpeningTime();
-            resetDurationOfAllMovieWithBreaksThroughoutTheDay();
+            //load();
+        }
+        else
+        {
+            addMovies();
+           // save();
         }
     }
 
-    private boolean repertoireShouldBeCreated()
-    {
-        return possibleDateOfTheNextMovie.isBefore(LAST_DAY);
-    }
 
-    private void setRepertoireDayPath()
-    {
-        repertoireDayPath = Path.of("files/repertoire/" + possibleDateOfTheNextMovie.toLocalDate() + ".txt");
-    }
-
-
-    private boolean repertoireForThisDateIsCreated()
+    private boolean repertoireAlreadyExists()
     {
         return Files.exists(repertoireDayPath);
     }
 
-    private void generateForOneDay()
+    private void addMovies()
     {
-        while (thereAreStillMinutesLeft())
+        boolean movieHasBeenAdded;
+        do
         {
-            generateOneMovie();
-        }
+            movieHasBeenAdded = addOneMovie();
+        } while (movieHasBeenAdded);
+
     }
 
-    private boolean thereAreStillMinutesLeft()
-    {
-        return durationOfAllMovieWithBreaksThroughoutTheDay < DURATION;
-    }
 
-    private void generateOneMovie()
+    private boolean addOneMovie()
     {
         Movie movie = MovieCollection.getRandomMovie();
-        Long movieDurationWithBreak = getMovieDurationWithBreak(movie);//zmienic nazwe
+        Long movieDurationIncludingBreak = getMovieDurationWithBreak(movie);
 
-        //to do osobnej funkcji
-        if (durationOfAllMovieWithBreaksThroughoutTheDay > DURATION)
+        if (minutesAreAvailable(movieDurationIncludingBreak) == true)
         {
-            return;
+            reduceTheNumberOfMinutesAvailable(movieDurationIncludingBreak);
+            moveTheStartTimeOfTheNextMovie(movieDurationIncludingBreak);
+            dateAndTimeToMovie.put(startTimeOfTheNextMovie, movie);
+            return true;
         }
-        increaseDurationCOS(movieDurationWithBreak);//zmienic nazwe
+        else
+        {
+            return false;
+        }
 
 
-        moveTheDateOfTheNextPossibleMovie(movieDurationWithBreak);
+    }
 
-        dateAndTimeToMovie.put(possibleDateOfTheNextMovie, movie);
-
+    private boolean minutesAreAvailable(Long movieDurationIncludingBreak)
+    {
+        if (numberOfAvailableMinutes > 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     private Long getMovieDurationWithBreak(Movie movie)
@@ -121,17 +108,18 @@ public class Repertoire
         return ThreadLocalRandom.current().nextLong(15) + 15;
     }
 
-    private void moveTheDateOfTheNextPossibleMovie(Long movieDurationWithBreak)
+    private void reduceTheNumberOfMinutesAvailable(Long movieDurationIncludingBreak)
     {
-        possibleDateOfTheNextMovie = possibleDateOfTheNextMovie.plusMinutes(movieDurationWithBreak);
+        numberOfAvailableMinutes -= movieDurationIncludingBreak;
     }
 
-    private void increaseDurationCOS(Long movieDurationWithBreak)
+    private void moveTheStartTimeOfTheNextMovie(Long movieDurationIncludingBreak)
     {
-        durationOfAllMovieWithBreaksThroughoutTheDay += movieDurationWithBreak;
+        startTimeOfTheNextMovie.plusMinutes(movieDurationIncludingBreak);
     }
 
-    private void save()
+
+   /* private void save()
     {
         try (PrintWriter repertoireFileWriter = new PrintWriter(Files.newBufferedWriter(repertoireDayPath)))
         {
@@ -152,16 +140,5 @@ public class Repertoire
     private void load()
     {
 
-    }
-
-    private void setTheDateOfTheNextPossibleMovieToTheNextDayAtTheOpeningTime()
-    {
-        possibleDateOfTheNextMovie = possibleDateOfTheNextMovie.plusDays(1).withHour(FIRST_DAY.getHour()).withMinute(FIRST_DAY.getMinute());
-    }
-
-    private void resetDurationOfAllMovieWithBreaksThroughoutTheDay()
-    {
-        durationOfAllMovieWithBreaksThroughoutTheDay = 0L;
-    }
-
+    }*/
 }
