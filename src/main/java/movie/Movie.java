@@ -17,9 +17,9 @@ public class Movie
 
     private BigDecimal price;
 
-    private Integer duration;
+    private Long duration;
 
-    public Movie(String title, String description, LocalDate releaseDate, Genre genre, BigDecimal price, Integer duration)
+    public Movie(String title, String description, LocalDate releaseDate, Genre genre, BigDecimal price, Long duration)
     {
         this.title = title;
         this.description = description;
@@ -61,7 +61,7 @@ public class Movie
         return price;
     }
 
-    public Integer getDuration()
+    public Long getDuration()
     {
         return duration;
     }

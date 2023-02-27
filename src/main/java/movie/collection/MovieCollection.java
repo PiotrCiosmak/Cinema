@@ -22,28 +22,28 @@ public class MovieCollection
 
     private static Map<Long, Movie> idToMovie = new HashMap<>();
 
-    private static Path moviesFilePath = Path.of("files/movies.txt");
+    private static final Path moviesFilePath = Path.of("files/movies.txt");
 
     public static void load()
     {
         idToMovie.clear();
         key = 0L;
-        Stream<String> lines = getStreamOfLines(moviesFilePath);
+        Stream<String> lines = getStreamOfLines();
         lines.forEach(line ->
         {
             String[] parts = line.split("\\|");
-            Movie movie = new Movie(parts[0], parts[1], LocalDate.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM-dd")), Genre.valueOf(parts[3].toUpperCase()), new BigDecimal(parts[4]), Integer.parseInt(parts[5]));
+            Movie movie = new Movie(parts[0], parts[1], LocalDate.parse(parts[2], DateTimeFormatter.ofPattern("yyyy-MM-dd")), Genre.valueOf(parts[3].toUpperCase()), new BigDecimal(parts[4]), Long.parseLong(parts[5]));
             add(movie);
         });
         System.out.println("Movies has been loaded");
     }
 
-    private static Stream<String> getStreamOfLines(Path path)
+    private static Stream<String> getStreamOfLines()
     {
         Stream<String> lines = null;
         try
         {
-            lines = Files.lines(path);
+            lines = Files.lines(moviesFilePath);
         }
         catch (IOException exception)
         {
