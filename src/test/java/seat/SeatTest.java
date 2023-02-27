@@ -1,14 +1,9 @@
 package seat;
 
-import movie.Movie;
-import movie.genre.Genre;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import seat.type.Type;
-
-import java.math.BigDecimal;
-import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
