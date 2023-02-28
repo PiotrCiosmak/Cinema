@@ -1,16 +1,15 @@
 package repertoire.collection;
 
-import movie.Movie;
 import movie.collection.MovieCollection;
 import org.junit.jupiter.api.*;
+import repertoire.Repertoire;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -21,7 +20,7 @@ class RepertoireCollectionTest
 
     private static List<String> repertoireFilePaths;
 
-    private final static LocalDate date = LocalDate.of(2000, 01, 01);
+    private final static LocalDate date = LocalDate.of(2000, 1, 1);
 
     @BeforeAll
     public static void initialize()
@@ -47,8 +46,49 @@ class RepertoireCollectionTest
     {
         List<LocalTime> workingHours = generateWorkingHours();
         repertoireCollection = new RepertoireCollection(workingHours.get(0), workingHours.get(1), date);
-        List<Map<LocalDateTime, Movie>> repertoires = repertoireCollection.generate();
-        assertFalse(repertoires.isEmpty());
+        repertoireCollection.show();
+    }
+
+
+    @Test
+    @DisplayName("Should get present optional repertoire object when repertoire is prepared for that day")
+    public void shouldGetPresentOptionalRepertoireObjectWhenRepertoireIsNPreparedForThatDay()
+    {
+        List<LocalTime> workingHours = generateWorkingHours();
+        repertoireCollection = new RepertoireCollection(workingHours.get(0), workingHours.get(1), date);
+        Optional<Repertoire> repertoire = repertoireCollection.getRepertoireOfTheDay(date);
+        assertFalse(repertoire.isEmpty());
+    }
+
+    @Test
+    @DisplayName("Should get empty optional repertoire object when repertoire isn't prepared for that day")
+    public void shouldGetEmptyOptionalRepertoireObjectWhenRepertoireIsNotPreparedForThatDay()
+    {
+        List<LocalTime> workingHours = generateWorkingHours();
+        repertoireCollection = new RepertoireCollection(workingHours.get(0), workingHours.get(1), date);
+        Optional<Repertoire> repertoire = repertoireCollection.getRepertoireOfTheDay(LocalDate.MIN);
+        assertTrue(repertoire.isEmpty());
+    }
+
+    @Test
+    @DisplayName("Should show all repertoires without throwing any exceptions when repertoires are properly loaded")
+    public void shouldShowTheEntireRepertoireWithoutThrowingAnyExceptionsWhenRepertoireIsProperlyLoaded()
+    {
+        List<LocalTime> workingHours = generateWorkingHours();
+        repertoireCollection = new RepertoireCollection(workingHours.get(0), workingHours.get(1), date);
+
+        repertoireCollection.show();
+    }
+
+    @Test
+    @DisplayName("Should return RepertoireCollection object when repertoireCollection is properly loaded")
+    public void shouldReturnRepertoireObjectWhenRepertoireIsProperlyLoaded()
+    {
+        List<LocalTime> workingHours = generateWorkingHours();
+        repertoireCollection = new RepertoireCollection(workingHours.get(0), workingHours.get(1), date);
+
+        RepertoireCollection testRepertoireCollection = repertoireCollection.get();
+        testRepertoireCollection.show();
     }
 
     private static List<LocalTime> generateWorkingHours()

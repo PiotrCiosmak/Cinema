@@ -1,14 +1,12 @@
 package repertoire.collection;
 
-import movie.Movie;
 import repertoire.Repertoire;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 public class RepertoireCollection
 {
@@ -19,7 +17,7 @@ public class RepertoireCollection
     private LocalTime openingHours;
     private LocalTime closingHours;
 
-    private List<Map<LocalDateTime, Movie>> repertoires;
+    private List<Repertoire> repertoires;
 
     public RepertoireCollection(LocalTime openingHours, LocalTime closingHours)
     {
@@ -30,6 +28,7 @@ public class RepertoireCollection
         this.openingHours = openingHours;
         this.closingHours = closingHours;
         this.repertoires = new ArrayList<>();
+        generate();
     }
 
     public RepertoireCollection(LocalTime openingHours, LocalTime closingHours, LocalDate firstDay)
@@ -41,17 +40,43 @@ public class RepertoireCollection
         this.openingHours = openingHours;
         this.closingHours = closingHours;
         this.repertoires = new ArrayList<>();
+        generate();
     }
 
-    public List<Map<LocalDateTime, Movie>> generate()
+    public void show()
+    {
+        for (Repertoire repertoire : repertoires)
+        {
+            repertoire.show();
+        }
+    }
+
+    public Optional<Repertoire> getRepertoireOfTheDay(LocalDate date)
+    {
+        for (Repertoire repertoire : repertoires)
+        {
+            if (repertoire.getDate().equals(date))
+            {
+                return Optional.of(repertoire);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public RepertoireCollection get()
+    {
+        return this;
+    }
+
+    private void generate()
     {
         Repertoire repertoire;
         while (LAST_DAY.isAfter(currentDay))
         {
             repertoire = new Repertoire(currentDay, openingHours, closingHours);
-            repertoires.add(repertoire.generate());
+            repertoires.add(repertoire.getRepertoire());
             currentDay = currentDay.plusDays(1);
         }
-        return repertoires;
     }
+
 }
