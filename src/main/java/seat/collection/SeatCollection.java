@@ -23,9 +23,9 @@ public class SeatCollection
             rowNumberToTheNumberOfSeats.put(i, numberOfSeatsInRow);
             List<Seat> rowOfSeats = new ArrayList<>();
             Type seatTypeAcrossTheRow = Type.generateType();
-            for (int j = 0; j < numberOfSeatsInRow; j++)
+            for (int j = 0; j < numberOfSeatsInRow; ++j)
             {
-                rowOfSeats.add(new Seat(seatTypeAcrossTheRow, i , j ));
+                rowOfSeats.add(new Seat(seatTypeAcrossTheRow, i, j));
             }
             seats.add(rowOfSeats);
         }
@@ -44,7 +44,7 @@ public class SeatCollection
     public void show()
     {
         showSeatsNumbers();
-        for (int i = 1; i < seats.size(); ++i) //TODO SPRAWDZIĆ WARUNKI GRANICZNE
+        for (int i = 0; i < seats.size(); ++i)
         {
             showRowNumber(i);
             for (Seat seat : seats.get(i))
@@ -59,7 +59,7 @@ public class SeatCollection
     {
         System.out.print("   |");
         Integer largestNumberOfSeatsInRow = getLargestNumberOfSeatsInRow();
-        for (int i = 1; i <= largestNumberOfSeatsInRow; i++)
+        for (int i = 0; i <= largestNumberOfSeatsInRow; ++i)
         {
             System.out.print(i);
         }
@@ -110,11 +110,11 @@ public class SeatCollection
 
     private boolean rowNumberIsCorrect(Integer rowNumber)
     {
-        return rowNumber >= 0 && rowNumber < seats.size();//TODO SPRAWDZIĆ WARUNKI GRANICZNE W TEŚCIE
+        return rowNumber >= 0 && rowNumber < seats.size();
     }
 
     private boolean seatNumberIsCorrect(Integer rowNumber, Integer seatNumber)
     {
-        return seatNumber >= 0 && seatNumber < seats.get(rowNumber).size();//TODO SPRAWDZIĆ WARUNKI GRANICZNE W TEŚCIE
+        return seatNumber >= 0 && seatNumber < seats.get(rowNumber).size();
     }
 }
