@@ -2,10 +2,6 @@ REPERTOIRE COLLECTION
 Dodać możliwość uzyskania repertuaru na konkretny dzień (podajac jako argument data/dzień)
 dodać możloiwść wyświetlenia repertuaru na cały tydzień(wersje z argumenetm pierwszego dnia, i wersje bez arugmentu wyświetlającą od dnia LocalDate.now)
 
-REPERTOIRE:
-dodac możliwośc wyświetlenia reperturary na konkrenty dzień(argument data/dzień)
-dodać możliwośc uzyskania konkretnego filmu(argument godzina startu)
-
 KLASA MOVIE:
 informacja o tym czy 2d czy 3d
 informacje o tym czy z napisami
