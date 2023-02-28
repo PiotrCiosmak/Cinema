@@ -6,9 +6,7 @@ import org.junit.jupiter.api.*;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -55,7 +53,7 @@ class RepertoireTest
     @DisplayName("Should return Repertoire object when repertoire is properly loaded")
     public void  shouldReturnRepertoireObjectWhenRepertoireIsProperlyLoaded()
     {
-        Repertoire testRepertoire = repertoire.getRepertoire();
+        Repertoire testRepertoire = repertoire.get();
         testRepertoire.show();
     }
 

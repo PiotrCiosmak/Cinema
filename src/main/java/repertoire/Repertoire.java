@@ -59,7 +59,7 @@ public class Repertoire
         return Optional.empty();
     }
 
-    public Repertoire getRepertoire()
+    public Repertoire get()
     {
         return this;
     }

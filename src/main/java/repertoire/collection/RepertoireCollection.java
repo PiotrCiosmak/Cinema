@@ -74,7 +74,7 @@ public class RepertoireCollection
         while (LAST_DAY.isAfter(currentDay))
         {
             repertoire = new Repertoire(currentDay, openingHours, closingHours);
-            repertoires.add(repertoire.getRepertoire());
+            repertoires.add(repertoire.get());
             currentDay = currentDay.plusDays(1);
         }
     }
