@@ -1,21 +1,28 @@
-KLASA SALA:
-ma swój repertuar
-zawiera obiekty miejsce (tablica 2d czy jakoś tak)
-wielkośc sali (enum)
-liczba zajetych miejsc
-liczba wolnych miejsc
-zwraca info ile % miejsc zajetych
+REPERTOIRE COLLECTION
+Dodać możliwość uzyskania repertuaru na konkretny dzień (podajac jako argument data/dzień)
+dodać możloiwść wyświetlenia repertuaru na cały tydzień(wersje z argumenetm pierwszego dnia, i wersje bez arugmentu wyświetlającą od dnia LocalDate.now)
 
-KLASA CINEMA:
-wszystkie sale wenątrz
-godzina otwarcia
-godzina zamkniecie
-Lokalizacja kina (osobna klasa)
+REPERTOIRE:
+dodac możliwośc wyświetlenia reperturary na konkrenty dzień(argument data/dzień)
+dodać możliwośc uzyskania konkretnego filmu(argument godzina startu)
 
 KLASA MOVIE:
 informacja o tym czy 2d czy 3d
 informacje o tym czy z napisami
 informacja o tym czy z dubiinigiem
+dodać możliwośc wyświetlenia informacji na temat konkretego filmu
+
+DODAĆ KLASĘ HALL:
+info w pliku tmpHall.java
+
+KLASA LOKALIZACJA:
+dane adresowe kina
+
+KLASA CINEMA:
+lista sal kinowych
+godzina otwarcia
+godzina zamkniecie
+Lokalizacja kina (osobna klasa)
 
 KLASA KLIENT:
 klient bedzie mogł sprawdc rperatuar na konkertny dzień (a pozniej ew. filtrować po gatunkach lub godzinach)
