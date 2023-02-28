@@ -4,17 +4,18 @@ import seat.type.Type;
 
 public class Seat
 {
-    private Type type;
-    private Integer row;
-    private Integer number;
+    private final Type type;
+    private final Integer row;
+    private final Integer number;
     private boolean free;
 
-    public Seat(Type genre, Integer row, Integer number)
+    public Seat(Type type, Integer row, Integer number)
     {
-        this.type = genre;
+        this.type = type;
         this.row = row;
         this.number = number;
-        free = true;
+        this.free = true;
+
     }
 
     public boolean book()
