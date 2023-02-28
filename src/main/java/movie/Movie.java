@@ -36,6 +36,18 @@ public class Movie
         return oldPrice;
     }
 
+    public void show()
+    {
+        System.out.println("\n*********************");
+        System.out.println("Movie details");
+        System.out.println("Title: " + title);
+        System.out.println("Description: " + description);
+        System.out.println("Release date: " + releaseDate.toString());
+        System.out.println("Genre: " + genre.toString());
+        System.out.println("Price: " + price.toString());
+        System.out.println("Duration: " + duration);
+    }
+
     public String getTitle()
     {
         return title;

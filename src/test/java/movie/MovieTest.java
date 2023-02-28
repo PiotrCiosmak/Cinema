@@ -27,4 +27,11 @@ class MovieTest
         movie.updatePrice(BigDecimal.valueOf(10.0));
         assertEquals(movie.getPrice(), BigDecimal.valueOf(10.0));
     }
+
+    @Test
+    @DisplayName("Should show movie info")
+    public void shouldShowMovieInfo()
+    {
+        movie.show();
+    }
 }
