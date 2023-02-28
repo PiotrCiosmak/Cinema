@@ -58,6 +58,11 @@ public class Repertoire
         return Optional.empty();
     }
 
+    public Repertoire getRepertoire()
+    {
+        return this;
+    }
+
     private LocalDate getDate()
     {
         return dateAndTimeToMovie.keySet().stream().findFirst().orElseThrow().toLocalDate();

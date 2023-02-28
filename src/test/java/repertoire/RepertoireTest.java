@@ -51,6 +51,14 @@ class RepertoireTest
         repertoire.show();
     }
 
+    @Test
+    @DisplayName("Should return Repertoire object when repertoire is properly loaded")
+    public void  shouldReturnRepertoireObjectWhenRepertoireIsProperlyLoaded()
+    {
+        Repertoire testRepertoire = repertoire.getRepertoire();
+        testRepertoire.show();
+    }
+
     @AfterEach
     void cleanUp()
     {
