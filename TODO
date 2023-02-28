@@ -3,9 +3,6 @@ informacja o tym czy 2d czy 3d
 informacje o tym czy z napisami
 informacja o tym czy z dubiinigiem
 
-KLASA SEAT:
-dodać współczynnik przez który bedzie mnozona cena biletu 1.0 dla standardawoe i itd dla każdego lepszego biletu (dodać to tez do ENUM seat.Type)
-
 DODAĆ KLASĘ SEATCOLLECTION która ma info o wszystkich siedziniach w danej sali
 
 DODAĆ KLASĘ HALL:
