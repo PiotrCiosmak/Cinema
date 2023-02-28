@@ -37,6 +37,7 @@ public class Repertoire
 
     public void show()
     {
+        System.out.println("\n------------------------------");
         System.out.println("Repertoire of the day " + getDate().toString());
         for (Map.Entry<LocalDateTime, Movie> entry : dateAndTimeToMovie.entrySet())
         {
@@ -63,7 +64,7 @@ public class Repertoire
         return this;
     }
 
-    private LocalDate getDate()
+    public LocalDate getDate()
     {
         return dateAndTimeToMovie.keySet().stream().findFirst().orElseThrow().toLocalDate();
     }
