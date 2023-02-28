@@ -12,10 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Stream;
 
@@ -35,9 +32,38 @@ public class Repertoire
         this.startTimeOfTheNextMovie = date.atTime(openingHours);
         this.repertoireFilePath = Path.of("files/repertoire/" + date + ".txt");
         this.dateAndTimeToMovie = new HashMap<>();
+        generate();
     }
 
-    public Map<LocalDateTime, Movie> generate()
+    public void show()
+    {
+        System.out.println("Repertoire of the day " + getDate().toString());
+        for (Map.Entry<LocalDateTime, Movie> entry : dateAndTimeToMovie.entrySet())
+        {
+            System.out.println(entry.getValue().getTitle() + " will be shown on " + entry.getKey());
+        }
+    }
+
+    public Optional<Movie> getMovie(LocalTime startTime)
+    {
+        for (Map.Entry<LocalDateTime, Movie> entry : dateAndTimeToMovie.entrySet())
+        {
+            LocalDateTime dateTime = entry.getKey();
+            Movie movie = entry.getValue();
+            if (dateTime.toLocalTime().equals(startTime))
+            {
+                return Optional.of(movie);
+            }
+        }
+        return Optional.empty();
+    }
+
+    private LocalDate getDate()
+    {
+        return dateAndTimeToMovie.keySet().stream().findFirst().orElseThrow().toLocalDate();
+    }
+
+    private void generate()
     {
         if (repertoireAlreadyExists())
         {
@@ -48,7 +74,6 @@ public class Repertoire
             addMovies();
             save();
         }
-        return dateAndTimeToMovie;
     }
 
     private boolean repertoireAlreadyExists()

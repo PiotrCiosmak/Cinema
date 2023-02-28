@@ -9,8 +9,9 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Map;
+import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 class RepertoireTest
 {
@@ -21,32 +22,33 @@ class RepertoireTest
     @BeforeEach
     public void initialize()
     {
+        MovieCollection.load();
         date = LocalDate.of(2000,01,01);
         repertoireFilePath = "files/repertoire/" + date + ".txt";
         repertoire = new Repertoire(date, LocalTime.of(6, 0), LocalTime.of(22, 0));
-        MovieCollection.load();
     }
 
     @Test
-    @DisplayName("Should generate and save repertoire when repertoire isn't created for this date")
-    public void shouldGenerateAndSaveRepertoireWhenRepertoireIsNotCreatedForThisDate()
+    @DisplayName("Should get present optional movie object when movie is starting at this hours")
+    public void shouldGetPresentOptionalMovieObjectWhenMovieIsStartingAtThisHour()
     {
-        Map<LocalDateTime, Movie> dateAndTimeToMovie = repertoire.generate();
-        assertFalse(dateAndTimeToMovie.isEmpty());
+        Optional<Movie> movie = repertoire.getMovie(LocalTime.of(6,0));
+        assertTrue(movie.isPresent());
     }
 
     @Test
-    @DisplayName("Should load repertoire when repertoire is created for this date")
-    public void shouldLoadRepertoireWhenRepertoireIsCreatedForThisDate()
+    @DisplayName("Should get empty optional movie object when movie isn't starting at this hours")
+    public void shouldGetEmptyOptionalMovieObjectWhenMovieIsNotStartingAtThisHour()
     {
-        Map<LocalDateTime, Movie> dateAndTimeToMovie = repertoire.generate();
-        assertFalse(dateAndTimeToMovie.isEmpty());
+        Optional<Movie> movie = repertoire.getMovie(LocalTime.of(6,1));
+        assertTrue(movie.isEmpty());
+    }
 
-        dateAndTimeToMovie.clear();
-
-        dateAndTimeToMovie = repertoire.generate();
-        assertFalse(dateAndTimeToMovie.isEmpty());
-
+    @Test
+    @DisplayName("Should show the entire repertoire without throwing any exceptions when repertoire is properly loaded")
+    public void shouldShowTheEntireRepertoireWithoutThrowingAnyExceptionsWhenRepertoireIsProperlyLoaded()
+    {
+        repertoire.show();
     }
 
     @AfterEach
