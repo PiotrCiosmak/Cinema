@@ -1,3 +1,9 @@
+KLASA SEATCOLLECTION:
+napisać testy do końca
+zmienić zeby nie było rzedu nr 0 i siedzenia numer 0:
+w mapie
+w liście
+
 KLASA SEAT:
 Napisać metode wypisująca info o siedzieniu
 
@@ -20,6 +26,8 @@ KLASA KLIENT:
 klient bedzie mogł sprawdc rperatuar na konkertny dzień (a pozniej ew. filtrować po gatunkach lub godzinach)
 wyszukać film po nazwie
 gdy wybierze film sprawdzić czy są wolne miejsca (i które mapa X/O) i ew. zarezerwowac miejsce
+
+
 
 
 
