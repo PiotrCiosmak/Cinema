@@ -30,6 +30,21 @@ public class Seat
         return false;
     }
 
+    public boolean isFree()
+    {
+        return free;
+    }
+
+    public void show()
+    {
+        System.out.println("\n*********************");
+        System.out.println("Seat details");
+        System.out.println("Type: " + type.toString());
+        System.out.println("Row: " + row);
+        System.out.println("Number:" + number);
+        System.out.println("Is free: " + free);
+    }
+
     public Type getType()
     {
         return type;
@@ -43,11 +58,6 @@ public class Seat
     public Integer getNumber()
     {
         return number;
-    }
-
-    public boolean isFree()
-    {
-        return free;
     }
 
     @Override

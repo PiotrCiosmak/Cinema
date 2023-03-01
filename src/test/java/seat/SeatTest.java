@@ -34,4 +34,36 @@ class SeatTest
         seat.book();
         assertFalse(seat.isFree());
     }
+
+    @Test
+    @DisplayName("Should show seat details when the seat is created")
+    public void shouldShowSeatDetailsWhenTheSeatIsCreated()
+    {
+        seat.show();
+    }
+
+    @Test
+    @DisplayName("Should get type of the seat when the seat is created")
+    public void shouldGetTypeOfTheSeatWhenTheSeatIsCreated()
+    {
+        Type type = seat.getType();
+        assertNotEquals(type, null);
+    }
+
+    @Test
+    @DisplayName("Should get row number of the seat when the seat is created")
+    public void shouldGetRowNumberOfTheSeatWhenTheSeatIsCreated()
+    {
+        Integer rowNumber = seat.getRow();
+        assertNotEquals(rowNumber, null);
+
+    }
+
+    @Test
+    @DisplayName("Should get seat number  when the seat is created")
+    public void shouldGeSeatNumberWhenTheSeatIsCreated()
+    {
+        Integer seatNumber = seat.getNumber();
+        assertNotEquals(seatNumber,null);
+    }
 }
