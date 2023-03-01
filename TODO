@@ -1,8 +1,3 @@
-KLASA SEATCOLLECTION:
-zmienić zeby nie było rzedu nr 0 i siedzenia numer 0:
-w mapie
-w liście
-
 KLASA SEAT:
 Napisać metode wypisująca info o siedzieniu
 
@@ -38,3 +33,6 @@ informacja o tym czy z dubiinigiem
 
 KLASA SEATCOLLECTION:
 wycentrownie siedzień w każdym rzędzie
+zmienić zeby nie było rzedu nr 0 i siedzenia numer 0:
+- w mapie
+- w liście
