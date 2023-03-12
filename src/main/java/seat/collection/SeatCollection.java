@@ -3,6 +3,8 @@ package seat.collection;
 import seat.Seat;
 import seat.type.Type;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -11,6 +13,10 @@ public class SeatCollection
     private Map<Integer, Integer> rowNumberToTheNumberOfSeats;
 
     private List<List<Seat>> seats;
+
+    private Integer allSeats;
+    private Integer freeSeats;
+    private Integer occupiedSeats;
 
     public SeatCollection()
     {
@@ -39,6 +45,28 @@ public class SeatCollection
     private Integer generateNumberOfSeatsInRow()
     {
         return ThreadLocalRandom.current().nextInt(5) + 5;
+    }
+
+    public void showHowManyPercentOfSeatsAreOccupied()
+    {
+        BigDecimal percentageOfOccupiedSeats = calculateThePercentageOfOccupiedSeats();
+        System.out.println(percentageOfOccupiedSeats + " of the seats are filled.");
+    }
+
+    private BigDecimal calculateThePercentageOfOccupiedSeats()
+    {
+        return BigDecimal.valueOf(occupiedSeats).divide(BigDecimal.valueOf(allSeats), RoundingMode.UP).setScale(2, RoundingMode.UP);
+    }
+
+    public void showHowManyPercentOfSeatsAreFree()
+    {
+        BigDecimal percentageOfOccupiedSeats = calculateThePercentageOfOccupiedSeats();
+        System.out.println(percentageOfOccupiedSeats + " of the seats are free.");
+    }
+
+    private BigDecimal calculateThePercentageOfFreeSeats()
+    {
+        return BigDecimal.valueOf(freeSeats).divide(BigDecimal.valueOf(allSeats), RoundingMode.DOWN).setScale(2, RoundingMode.DOWN);
     }
 
     public void show()
